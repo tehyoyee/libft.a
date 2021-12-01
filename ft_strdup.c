@@ -6,13 +6,13 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:13:25 by taehykim          #+#    #+#             */
-/*   Updated: 2021/11/23 17:16:46 by taehykim         ###   ########.fr       */
+/*   Updated: 2021/12/01 11:44:00 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	int		i;
 	char	*arr;

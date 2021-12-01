@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 13:45:39 by taehykim          #+#    #+#             */
-/*   Updated: 2021/12/01 14:04:47 by taehykim         ###   ########.fr       */
+/*   Created: 2021/12/01 15:19:57 by taehykim          #+#    #+#             */
+/*   Updated: 2021/12/01 16:14:35 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 
-	i = ft_strlen(s);
-	if (!c)
-		return ((char *)s + i);
-	while (i >= 0)
+	i = 0;
+	while (i < n)
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i--;
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		if (((unsigned char *)src)[i] == (unsigned char)c)
+			return (dst + i + 1);
+		i++;
 	}
-	return (NULL);
+	return NULL;
 }
