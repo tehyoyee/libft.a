@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
@@ -34,13 +32,4 @@ size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize
 	}
 	dst[i] = '\0';
 	return (j);
-}
-
-int	main(void)
-{
-	char	a[20] = "abcde abcd";
-	char	b[0];
-
-	printf("%lu\n", ft_strlcpy(b, a, 0));
-	printf("%s", b);
 }
