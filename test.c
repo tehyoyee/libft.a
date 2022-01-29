@@ -1,53 +1,114 @@
-
 #include "libft.h"
 #include <stdio.h>
+int	word_cmp(char a, char b);
 
-long int	ft_abs(long int nbr)
+char	**ft_malloc_fail(char **ret)
 {
-	return ((nbr < 0) ? -nbr : nbr);
-}
+	size_t	i;
 
-int			ft_len(long int nbr)
-{
-	int		len;
-
-	len = (nbr <= 0) ? 1 : 0;
-	while (nbr != 0)
+	i = 0;
+	while(ret[i])
 	{
-		nbr = nbr / 10;
-		len++;
+		free(ret[i]);
+		i++;
 	}
-	return (len);
+	free(ret);
+	return (NULL);
 }
 
-char		*ft_itoa(int n)
+int count_size(char const *s, char c)
 {
-	int		len;
-	int		sign;
-	char	*c;
+	int	cnt;
 
-
-	sign = (n < 0) ? -1 : 1;
-	len = ft_len(n);
-	c = (char *)malloc(sizeof(char) * len + 1);
-	if (c == NULL)
-		return (0);
-	c[len] = '\0';
-	len--;
-
-	while (len >= 0)
+	cnt = 0;
+	while (*s)
 	{
-		c[len] = '0' + ft_abs(n % 10);
-		n = ft_abs(n / 10);
-		len--;
+		if (!word_cmp(*s, c))
+		{
+			cnt++;
+		}
+		s++;
 	}
-	if (sign == -1)
-		c[0] = '-';
-	return (c);
+	return (cnt);
 }
-int	main(void)
+
+void	ft_strncpy(char *dest, char const *src, int n)
 {
-	printf("%s\n", ft_itoa(001245));
-	printf("%s\n", ft_itoa(-001352));
-	printf("%s\n", ft_itoa(0));
+	int i;
+
+	i = 0;
+	while (*src && i < n)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		i++;
+	}
+	*dest = '\0';
+}
+
+int	word_cmp(char a, char b)
+{
+	if (a == b)
+		return (1);
+	return (0);
+}
+
+int	find_c(char const *s, char c)
+{
+	int	result;
+
+	result = 0;
+	while (*s)
+	{
+		if (*s == c)
+			result++;
+		s++;
+	}
+	return (result);
+}
+
+char	**split_operate(char const *s, char c, char **ret)
+{
+	size_t	size;
+	size_t	i;
+
+	i = 0;
+	size = 0;
+	while(*s)
+	{
+		if (!word_cmp(*s, c))
+		{
+			size = 0;
+			while (*s && !word_cmp(*s, c))
+			{
+				size++;
+				s++;
+			}
+			ret[i] = (char *)malloc(sizeof(char) * (size + 1));
+			if (!ret[i])
+				return (ft_malloc_fail(ret));
+			ft_strlcpy(ret[i], s - size, size + 1);
+			i++;
+		}
+		s++;
+	}
+	ret[i] = NULL;
+	return (ret);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**ret;
+	size_t	i;
+	size_t	arr_num;
+
+	i = 0;
+	arr_num = 0;
+	if (!s)
+		return (NULL);
+	ret = (char **)malloc(sizeof(char *) * (count_size(s, c) + 1));
+	if (!ret)
+		return (NULL);
+	return (split_operate(s, c, ret));
 }

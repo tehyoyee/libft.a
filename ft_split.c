@@ -1,6 +1,37 @@
 
 #include "libft.h"
 #include <stdio.h>
+int	word_cmp(char a, char b);
+
+char	**ft_malloc_fail(char **ret)
+{
+	size_t	i;
+
+	i = 0;
+	while(ret[i])
+	{
+		free(ret[i]);
+		i++;
+	}
+	free(ret);
+	return (NULL);
+}
+
+int count_size(char const *s, char c)
+{
+	int	cnt;
+
+	cnt = 0;
+	while (*s)
+	{
+		if (!word_cmp(*s, c))
+		{
+			cnt++;
+		}
+		s++;
+	}
+	return (cnt);
+}
 
 void	ft_strncpy(char *dest, char const *src, int n)
 {
@@ -57,40 +88,40 @@ char	**split_operate(char const *s, char c, char **ret)
 			}
 			ret[i] = (char *)malloc(sizeof(char) * (size + 1));
 			if (!ret[i])
-				return (0);
-			ft_strncpy(ret[i], s - size, size);
+				return (ft_malloc_fail(ret));
+			ft_strlcpy(ret[i], s - size, size + 1);
 			i++;
 		}
 		s++;
 	}
-	ret[i] = '\0';
+	ret[i] = NULL;
 	return (ret);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**ret;
+	size_t	i;
+	size_t	arr_num;
 
+	i = 0;
+	arr_num = 0;
 	if (!s)
-		return (0);
-	if (!c)
-		return (0);
-	ret = (char **)malloc(sizeof(char *) * (ft_strlen(s) - find_c(s, c) + 1));
+		return (NULL);
+	ret = (char **)malloc(sizeof(char *) * (count_size(s, c) + 1));
 	if (!ret)
-		return (0);
+		return (NULL);
 	return (split_operate(s, c, ret));
 }
 
 int	main(void)
 {
-	char	arr[50] = "asdfgYasdfYasdfYasdFYsdf";
-	char	c = 'Y';
-	char	**str;
-	int 	i = 0;
-	str = ft_split(arr, c);
-	while (str[i])
+	char	arr[30] = "       olol";
+	char	**a;
+
+	a = ft_split(arr, ' ');
+	for (int i = 0; a[i]; i++)
 	{
-		printf("%s\n", str[i]);
-		i++;
+		printf("%s\n", a[i]);
 	}
 }

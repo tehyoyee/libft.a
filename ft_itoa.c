@@ -1,20 +1,30 @@
-
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/29 14:27:39 by taehykim          #+#    #+#             */
+/*   Updated: 2022/01/29 18:55:05 by taehykim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <stdio.h>
+#include "libft.h"
 
-int	find_len(int n)
+int	find_len(long nbr)
 {
 	int	len;
 
 	len = 0;
-	if (n == 0)
+	if (nbr == 0)
 		return (1);
-	if (n < 0)
-		n *= -1;
-	while (n > 0)
+	if (nbr < 0)
+		nbr *= -1;
+	while (nbr > 0)
 	{
 		len++;
-		n /= 10;
+		nbr /= 10;
 	}
 	return (len);
 }
@@ -25,24 +35,27 @@ int	find_sign(int n)
 		return (0);
 	return (1);
 }
+
 char	*print_zero(void)
 {
 	char	*zero;
 	int		i;
 
 	i = 0;
-	zero = (char *)malloc(sizeof(char) 	+ 1);
+	zero = (char *)malloc(sizeof(char) + 1);
 	zero[0] = '0';
 	zero[1] = '\0';
 	return (zero);
 }
+
 char	*ft_itoa(int n)
 {
 	int		sign;
 	int		len;
+	long	nbr;
 	char	*ret;
-	int		i;
 
+	nbr = n;
 	sign = find_sign(n);
 	len = find_len(n);
 	len += sign;
@@ -50,21 +63,14 @@ char	*ft_itoa(int n)
 	if (!ret)
 		return (NULL);
 	if (sign == 1)
-		n *= -1;
+		nbr *= -1;
 	ret[len--] = '\0';
 	while (len >= 0)
 	{
-		ret[len--] = n % 10 + '0';
-		n /= 10;
+		ret[len--] = nbr % 10 + '0';
+		nbr /= 10;
 	}
 	if (sign == 1)
 		ret[0] = '-';
 	return (ret);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_itoa(001245));
-	printf("%s\n", ft_itoa(-001352));
-	printf("%s\n", ft_itoa(0));
 }

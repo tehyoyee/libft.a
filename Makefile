@@ -6,7 +6,7 @@
 #    By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 09:36:50 by taehykim          #+#    #+#              #
-#    Updated: 2021/12/01 15:59:32 by taehykim         ###   ########.fr        #
+#    Updated: 2022/01/29 19:14:40 by taehykim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,20 +48,25 @@ SRCS = ft_atoi.c \
 		ft_itoa.c \
 		ft_strmapi.c \
 		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $< -o $@
-	
+		$(CC) $(CFLAGS) $< -o $@ -I $(INCDIR)
+
 $(NAME): $(OBJS)
-	$(AR) $(CRS) $@ $(OBJS)
+		$(AR) $(CRS) $@ $(OBJS)
 
 clean:
-	$(RM) $(OBJS)
+		$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+		$(RM) $(NAME)
 
 re: fclean all

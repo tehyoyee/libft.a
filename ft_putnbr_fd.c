@@ -1,33 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:03:15 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 12:41:07 by taehykim         ###   ########.fr       */
+/*   Created: 2022/01/29 19:15:14 by taehykim          #+#    #+#             */
+/*   Updated: 2022/01/29 19:44:30 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char * dst, const char * src, size_t dstsize)
+void	print(int n, int fd)
 {
-	size_t	i;
-	size_t	dst_len;
-	size_t	src_len;
-
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (dstsize < dst_len + 1)
-		return (src_len + dstsize);
-	i = 0;
-	while (src[i] && dst_len + i + 1 < dstsize)
+	if (n > 10)
 	{
-		dst[dst_len + i] = src[i];
-		i++;
+		print(n / 10, fd);
+		print(n % 10, fd);
 	}
-	dst[dst_len + i] = '\0';
-	return (dst_len + src_len);
+	else
+	{
+		write(fd, &"0123456789"[n % 10], 1);
+	}
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (fd < 0)
+		return ;
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		write(fd, "\n", 1);
+		return ;
+	}
+	if (n < 0)
+	{
+		n *= -1;
+		write(1, "-", 1);
+	}
+	print(n, fd);
+	write(fd, "\n", 1);
 }
