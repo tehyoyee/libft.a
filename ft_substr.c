@@ -10,7 +10,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (len > 0)
+	while (len > 0)	
 	{
 		str[i] = s[i + start];
 		i++;

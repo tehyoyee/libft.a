@@ -28,7 +28,7 @@ char        *ft_strtrim(char const *s1, char const *set)
 int	main(void)
 {
 	char	*a = "show me the money";
-	char	*b = "show me e money";
+	char	*b = "shoy";
 
 	printf("%s", ft_strtrim(a, b));
 }

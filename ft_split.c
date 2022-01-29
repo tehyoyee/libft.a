@@ -37,7 +37,7 @@ int	find_c(char const *s, char c)
 	}
 	return (result);
 }
-void	ft_free(char **ret, )
+
 char	**split_operate(char const *s, char c, char **ret)
 {
 	size_t	size;
@@ -57,7 +57,7 @@ char	**split_operate(char const *s, char c, char **ret)
 			}
 			ret[i] = (char *)malloc(sizeof(char) * (size + 1));
 			if (!ret[i])
-
+				return (0);
 			ft_strncpy(ret[i], s - size, size);
 			i++;
 		}
