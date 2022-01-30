@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 18:15:50 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/30 17:59:15 by taehykim         ###   ########.fr       */
+/*   Created: 2022/01/30 16:18:41 by taehykim          #+#    #+#             */
+/*   Updated: 2022/01/30 17:50:11 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
+	t_list	*temp;
 
-	if (!dst && !src)
-		return (dst);
-	i = 0;
-	while (i < n)
+	if (!lst || !(*lst))
+		return ;
+	while (*lst)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
+		temp = (*lst)->next;
+		(*del)((*lst)->content);
+		free(*lst);
+		*lst = NULL;
+		if (temp)
+			*lst = temp;
 	}
-	return (dst);
 }

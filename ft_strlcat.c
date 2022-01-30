@@ -6,13 +6,13 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:03:15 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 12:41:07 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:41:08 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char * dst, const char * src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	dst_len;

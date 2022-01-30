@@ -6,10 +6,10 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 14:27:39 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 18:55:05 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:58:48 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "libft.h"
 
 int	find_len(long nbr)

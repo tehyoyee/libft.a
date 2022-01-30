@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:17:23 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 14:28:47 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:53:37 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	arr = (void *)malloc(count * size);
 	if (!arr)
-		return (0);
+		return (NULL);
 	ft_bzero(arr, count * size);
 	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 19:06:45 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 19:44:47 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:42:43 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
-		return;
+		return ;
 	write(fd, s, ft_strlen(s));
 }

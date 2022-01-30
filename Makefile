@@ -6,7 +6,7 @@
 #    By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 09:36:50 by taehykim          #+#    #+#              #
-#    Updated: 2022/01/29 19:14:40 by taehykim         ###   ########.fr        #
+#    Updated: 2022/01/30 18:02:30 by taehykim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCS = ft_atoi.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
-		ft_memccpy.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memcpy.c \
@@ -52,6 +51,16 @@ SRCS = ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_lstnew.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
 
 OBJS = $(SRCS:.c=.o)
 

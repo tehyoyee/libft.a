@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:11:54 by taehykim          #+#    #+#             */
-/*   Updated: 2021/12/01 15:19:19 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 18:00:01 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (dst == NULL && src == NULL)
+	if (!dst && !src)
 		return (dst);
 	if (dst < src)
 	{

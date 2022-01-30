@@ -6,13 +6,13 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 14:26:11 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 17:26:58 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:39:43 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char        *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
@@ -24,7 +24,7 @@ char        *ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(s1));
 	start = 0;
 	end = ft_strlen(s1);
-	while (start < end && ft_strchr(set, s1[start]))	
+	while (start < end && ft_strchr(set, s1[start]))
 		start++;
 	while (end > start && ft_strchr(set, s1[end]))
 		end--;

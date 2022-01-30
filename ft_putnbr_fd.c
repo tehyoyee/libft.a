@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 19:15:14 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 19:44:30 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:53:06 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	print(int n, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (fd < 0)
-		return ;
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);

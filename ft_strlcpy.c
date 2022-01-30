@@ -6,13 +6,13 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:33:01 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 12:19:20 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:40:40 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	src_len;

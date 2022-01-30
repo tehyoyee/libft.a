@@ -6,15 +6,13 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 19:04:57 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 19:06:25 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:50:34 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (fd < 0)
-		return ;
 	write(fd, &c, 1);
 }
