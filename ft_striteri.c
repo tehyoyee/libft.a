@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 17:41:29 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/30 17:41:38 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/31 09:26:48 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int	i;
 
-	if (!s || !f)
+	if (!s)
 		return ;
 	i = 0;
 	while (s[i])
 	{
 		f(i, &s[i]);
+		i++;
 	}
 }

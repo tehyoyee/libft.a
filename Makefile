@@ -6,7 +6,7 @@
 #    By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 09:36:50 by taehykim          #+#    #+#              #
-#    Updated: 2022/01/30 18:02:30 by taehykim         ###   ########.fr        #
+#    Updated: 2022/01/31 16:44:00 by taehykim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,4 +78,6 @@ clean:
 fclean: clean
 		$(RM) $(NAME)
 
-re: fclean all
+re: fclean alil
+
+.PHONY: fclean all clean re

@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:52:57 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 16:19:44 by taehykim         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:59:53 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		str++;
 	}
-	if (*str == '0' && ('0' > *(str + 1) || *(str + 1) > '9'))
+	while (*str == '0')
+		str++;
+	if ('0' > *str || *str > '9')
 		return (0);
 	return (get_answer(str, sign));
 }

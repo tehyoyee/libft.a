@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 14:24:46 by taehykim          #+#    #+#             */
-/*   Updated: 2022/01/29 16:20:33 by taehykim         ###   ########.fr       */
+/*   Created: 2022/01/31 09:31:46 by taehykim          #+#    #+#             */
+/*   Updated: 2022/01/31 11:17:48 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,24 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len;
+	char	*arr;
 	size_t	i;
-	char	*str;
 
 	if (!s1 && !s2)
 		return (NULL);
-	else if (!s1 || !s2)
-	{
-		if (s1)
-			return (ft_strdup(s1));
-		else
-			return (ft_strdup(s2));
-	}
-	len = 0;
-	len += ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = (char *)malloc(sizeof(char) * len);
-	if (!str)
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	len = ft_strlen(s1) + ft_strlen(s2);
+	arr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!arr)
 		return (NULL);
 	i = 0;
 	while (*s1)
-		str[i++] = *s1++;
+		arr[i++] = *s1++;
 	while (*s2)
-		str[i++] = *s2++;
-	str[len - 1] = '\0';
-	return (str);
+		arr[i++] = *s2++;
+	arr[i] = '\0';
+	return (arr);
 }
