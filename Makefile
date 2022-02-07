@@ -6,7 +6,7 @@
 #    By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 09:36:50 by taehykim          #+#    #+#              #
-#    Updated: 2022/01/31 16:44:00 by taehykim         ###   ########.fr        #
+#    Updated: 2022/02/06 12:04:47 by taehykim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,33 +51,44 @@ SRCS = ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-		ft_lstnew.c \
-		ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
+
+SRCS_BONUS = ft_lstnew.c \
+			ft_lstadd_back.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_front.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
 
 OBJS = $(SRCS:.c=.o)
+
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
+ifdef WITH_BONUS
+	OBJ_FILES = $(OBJS) $(OBJS_BONUS)
+else
+	OBJ_FILES = $(OBJS)
+endif
 
 all: $(NAME)
 
 %.o: %.c
 		$(CC) $(CFLAGS) $< -o $@ -I $(INCDIR)
 
-$(NAME): $(OBJS)
-		$(AR) $(CRS) $@ $(OBJS)
+$(NAME): $(OBJ_FILES)
+		$(AR) $(CRS) $@ $(OBJ_FILES)
+
+bonus:
+		make WITH_BONUS=1 all
 
 clean:
-		$(RM) $(OBJS)
+		$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 		$(RM) $(NAME)
 
-re: fclean alil
+re: fclean all
 
-.PHONY: fclean all clean re
+.PHONY: fclean all bonus clean re
