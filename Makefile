@@ -16,7 +16,6 @@ CFLAGS = -Wall -Wextra -Werror -c
 RM = rm -f
 AR = ar
 CRS = crs
-INCDIR = ./libft.h
 SRCS = ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -75,7 +74,7 @@ endif
 all: $(NAME)
 
 %.o: %.c
-		$(CC) $(CFLAGS) $< -o $@ -I $(INCDIR)
+		$(CC) $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJ_FILES)
 		$(AR) $(CRS) $@ $(OBJ_FILES)

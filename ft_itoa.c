@@ -39,9 +39,7 @@ int	find_sign(int n)
 char	*print_zero(void)
 {
 	char	*zero;
-	int		i;
 
-	i = 0;
 	zero = (char *)malloc(sizeof(char) + 1);
 	zero[0] = '0';
 	zero[1] = '\0';

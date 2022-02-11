@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	num_len(unsigned long result)
+int	num_len(unsigned long long result)
 {
 	int	num_len;
 
@@ -27,8 +27,8 @@ int	num_len(unsigned long result)
 
 int	get_answer(const char *str, int sign)
 {
-	unsigned long	result;
-	int				arr_len;
+	unsigned long long	result;
+	int					arr_len;
 
 	result = 0;
 	arr_len = 0;
@@ -40,9 +40,9 @@ int	get_answer(const char *str, int sign)
 			return (-1);
 		if (num_len(result) != arr_len && sign == 1)
 			return (-1);
-		if (num_len(result) != arr_len && sign == 1)
-			return (0);
 		if ((result > 9223372036854775807 + 1UL) && sign == -1)
+			return (0);
+		if (num_len(result) != arr_len && sign == -1)
 			return (0);
 		str++;
 	}
