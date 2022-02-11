@@ -36,16 +36,6 @@ int	find_sign(int n)
 	return (1);
 }
 
-char	*print_zero(void)
-{
-	char	*zero;
-
-	zero = (char *)malloc(sizeof(char) + 1);
-	zero[0] = '0';
-	zero[1] = '\0';
-	return (zero);
-}
-
 char	*ft_itoa(int n)
 {
 	int		sign;
