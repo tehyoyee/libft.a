@@ -1,9 +1,8 @@
 # Libft
 
-Your very first own library
-Summary: This project aims to code a C library regrouping usual functions that you'll be use for all your next projects. Version:15
+>Your very first own library
 
-___
+>Summary: This project aims to code a C library regrouping usual functions that you'll be use for all your next projects. Version:15
 
 ## Elementary Fuctions
 1. isalpha
@@ -28,7 +27,7 @@ ___
 20. atoi
 21. calloc
 22. strdup
-___
+
 ## Additional Functions
 1. substr
 2. strjoin
@@ -41,7 +40,7 @@ ___
 9. putstr_fd
 10. putendl_fd
 11. putnbr_fd
-___
+
 ## Fuctions for Struct
 1. lstnew
 2. lstadd_front
