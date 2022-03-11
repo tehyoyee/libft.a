@@ -1,8 +1,11 @@
 # Libft
 
->Your very first own library
+> Your very first own library  
+> Summary: This project aims to code a C library regrouping usual functions that you'll be use for all your next projects. Version:15
 
->Summary: This project aims to code a C library regrouping usual functions that you'll be use for all your next projects. Version:15
+> 나만의 라이브러리  
+요약 : C 함수들 재구성. 다음 프로젝트들에 사용된다.
+
 
 ## Elementary Fuctions
 1. isalpha
