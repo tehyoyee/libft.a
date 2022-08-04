@@ -54,3 +54,10 @@
 7. lstclear
 8. lstiter
 9. lstmap
+
+## After subject
+
+```
+int		ft_chrcmp(char c1, char c2);'
+```
+> 1 글자 비교
